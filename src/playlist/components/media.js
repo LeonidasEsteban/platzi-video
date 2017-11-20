@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './media.css';
 
+
 class Media extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
+  handleClick = (event) => {
+    console.log(this.props.image)
+  }
   render() {
     const styles = {
       container: {
@@ -13,7 +21,7 @@ class Media extends Component {
       }
     }
     return (
-      <div className="Media">
+      <div className="Media" onClick={this.handleClick}>
         <div className="Media-cover">
           <img
             src={this.props.image}
