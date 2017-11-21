@@ -1,0 +1,13 @@
+.Title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,.5);
+  color: white;
+  padding: 10px 20px;
+}
+.Title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
