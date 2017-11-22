@@ -3,7 +3,7 @@ import './video-player.controls.css';
 
 function VideoPlayerControls(props) {
   return (
-    <div class="VideoPlayerControls">
+    <div className="VideoPlayerControls">
       {props.children}
     </div>
   )
