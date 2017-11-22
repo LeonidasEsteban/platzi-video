@@ -1,0 +1,11 @@
+.VideoPlayerControls {
+  display: flex;
+  position: absolute;
+  background: rgba(0,0,0,.7);
+  top: 100px;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+  border-radius: 20px;
+  padding: 0 10px;
+}
