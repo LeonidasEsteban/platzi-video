@@ -23,6 +23,7 @@ class VideoPlayer extends Component {
     })
   }
   componentDidMount() {
+    this.handleSetFullScreen();
     this.setState({
       pause: (!this.props.autoplay)
     })
@@ -57,16 +58,32 @@ class VideoPlayer extends Component {
     this.video.volume = event.target.value;
   }
   handleFullScreenClick = event => {
-    if (!document.webkitIsFullScreen) {
+    if (!this.handleCheckFullScreen()) {
       // mando a full screen
-      this.player.webkitRequestFullscreen()
+      this.player.requestFullscreen()
     } else {
-      document.webkitExitFullscreen();
+      document.exitFullscreen();
       // salgo del full screen
     }
   }
+
+  handleCheckFullScreen = () => {
+    return document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen;
+  }
+
+  handleSetFullScreen = () => {
+    document.exitFullscreen = document.exitFullscreen ||
+                              document.mozCancelFullScreen ||
+                              document.webkitExitFullscreen ;
+  }
+
   setRef = element => {
-    this.player = element
+    this.player = element;
+
+    this.player.requestFullscreen = this.player.requestFullscreen ||
+                                    this.player.mozRequestFullScreen ||
+                                    this.player.webkitRequestFullscreen ||
+                                    this.player.msRequestFullscreen;
   }
   render() {
     return (
